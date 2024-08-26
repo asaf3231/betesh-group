@@ -1,0 +1,56 @@
+.search-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.search-bar-container {
+  position: relative;
+  width: 50%;
+  margin: 0 auto;
+  max-width: 600px;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-bar-input {
+  width: 100%;
+  padding: 15px;
+  font-size: 18px;
+  font-family: 'Avenir Next', 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Font stack with fallbacks */
+  border: 2px solid #ccc;
+  border-radius: 30px; /* Rounded corners */
+  outline: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  background-color: white;
+  color: black;
+}
+
+/* Apply Avenir Next font to the city dropdown options */
+.city-dropdown {
+  position: absolute;
+  top: 100%; /* Places dropdown below the search bar */
+  left: 0;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  z-index: 1000;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.city-option {
+  padding: 10px;
+  cursor: pointer;
+  font-family: 'Avenir Next', 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Font stack with fallbacks */
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+
+.city-option:hover {
+  background-color: #f0f0f0;
+}

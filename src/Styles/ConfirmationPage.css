@@ -1,0 +1,16 @@
+.confirmation-page {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .confirmation-page h2 {
+    margin-bottom: 20px;
+  }
+  
+  .confirmation-page p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  

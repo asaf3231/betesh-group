@@ -1,0 +1,24 @@
+/* Ensure the main content doesn't overlap with the bottom bar */
+.main-content {
+    padding-bottom: 56px; /* Adjust to the height of your bottom bar */
+  }
+  
+  /* Style for the bottom bar */
+  .bottom-bar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: white; /* Background color for the bottom bar */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
+    z-index: 1000; /* Ensures it stays above other content */
+  }
+  
+  /* You can add general styling here */
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif; /* Choose a global font */
+  }
+  
+  .App {
+    text-align: center; /* Example of centering text in your app */
+  }
