@@ -1,23 +1,40 @@
 import React from 'react';
-import './SectionPage.css';
+import { useNavigate } from 'react-router-dom';
+import '../Styles/SectionPage.css';
+import BusinessItem from './BusinessItem';
 
-function Section({ title, description, imageUrl, items }) {
+const SectionPage = ({ title, description, imageUrl, items }) => {
+  const navigate = useNavigate();
+
+  const handleBusinessClick = (id) => {
+    navigate(`/telAviv/business/${id}`);
+  };
+
   return (
-    <div className="section" style={{ backgroundImage: `url(${imageUrl})` }}>
+    <div className="section-page">
+      <div 
+        className="imgbackground" 
+        style={{ 
+          backgroundImage: `url(${imageUrl})`
+        }}
+      ></div>
+      <div className="section-header">
+        <h1>{title}</h1>
+        <p className="section-description">{description}</p>
+      </div>
       <div className="section-content">
-        <h2>{title}</h2>
-        {description && <p>{description}</p>}
-        <div className="business-list">
-          {items.map((item) => (
-            <div key={item.id} className="business-item">
-              <h3>{item.name}</h3>
-              <p>{item.description}</p>
-            </div>
-          ))}
-        </div>
+        {items.map((item) => (
+          <BusinessItem
+            key={item.id}
+            name={item.name}
+            description={item.description}
+            imageUrl={item.imageUrl}
+            onClick={() => handleBusinessClick(item.id)} // Directly handle click event here
+          />
+        ))}
       </div>
     </div>
   );
-}
+};
 
-export default Section;
+export default SectionPage;

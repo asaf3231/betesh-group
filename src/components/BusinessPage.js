@@ -1,61 +1,57 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React from 'react';
+import Slider from 'react-slick';
 import '../Styles/BusinessPage.css';
+import BusinessBottomBar from './BusinessBottomBar';
+import StarIcon from '@mui/icons-material/Star';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
-function BusinessPage() {
-  const { id } = useParams();
-  const [business, setBusiness] = useState(null);
-  const [isActive, setIsActive] = useState(false);
 
-  useEffect(() => {
-    const businessData = {
-      1: {
-        name: 'The Drisco Hotel',
-        imageUrl: '/path/to/image1.jpg',
-        address: 'Nachmani St 23-25, Tel Aviv-Yafo, Israel',
-        phone: '+972 3-543-5555',
-        website: 'thedrisco.com',
-        description: 'Historic, luxury boutique hotel in Tel Aviv.',
-        details: 'Open 24 hours every day.',
-      },
-      2: {
-        name: 'Hotel 2',
-        imageUrl: '/path/to/image2.jpg',
-        address: 'Another Address, Tel Aviv-Yafo, Israel',
-        phone: '+972 3-543-5556',
-        website: 'hotel2.com',
-        description: 'Another luxurious experience in Tel Aviv.',
-        details: 'Open 24 hours every day.',
-      },
-      // Add more businesses as needed
-    };
+function BusinessPage({ business }) {
+  const [currentSection, setCurrentSection] = React.useState('general');
 
-    // Set the business data directly based on the ID
-    if (businessData[id]) {
-      setBusiness(businessData[id]);
-    } else {
-      // Handle the case where the ID does not exist
-      console.error(`No business found for ID ${id}`);
-    }
-
-    // Trigger the slide-up animation after a short delay
-    setTimeout(() => setIsActive(true), 100);
-  }, [id]);
-
-  if (!business) return <div>Loading...</div>;
+  const settings = {
+    dots: true, // Show navigation dots
+    infinite: true, // Loop through slides
+    speed: 500, // Transition speed
+    slidesToShow: 1, // Show one slide at a time
+    slidesToScroll: 1, // Scroll one slide at a time
+    adaptiveHeight: true, // Adjust height to the content
+  };
 
   return (
-    <div className={`business-page ${isActive ? 'active' : ''}`}>
-      <div className="business-image" style={{ backgroundImage: `url(${business.imageUrl})` }}>
-        <h1 className="business-name">{business.name}</h1>
+    <div className="business-page">
+      {/* Image Carousel Container */}
+      <div className="business-image-container">
+        <Slider {...settings}>
+          {business.photos.map((photo, index) => (
+            <div key={index}>
+              <img src={photo} alt={`Slide ${index}`} className="business-image" />
+            </div>
+          ))}
+        </Slider>
       </div>
-      <div className="business-details">
-        <p>{business.description}</p>
-        <p>{business.details}</p>
-        <p><strong>Address:</strong> {business.address}</p>
-        <p><strong>Phone:</strong> {business.phone}</p>
-        <p><strong>Website:</strong> <a href={`https://${business.website}`} target="_blank" rel="noopener noreferrer">{business.website}</a></p>
+
+      {/* Information Container */}
+      <div className="business-info-container">
+        <div className="business-info-header">
+          <h1 className="business-name">{business.name}</h1>
+          <div className="business-rating">
+            <StarIcon className="star-icon" />
+            <span>{business.googleRating}</span>
+          </div>
+        </div>
+
+        {/* Business Details */}
+        <div className="business-details">
+          <p>Location: {business.address}</p>
+          <p>Contact: {business.phone}</p>
+          <p>Description: {business.description}</p>
+        </div>
       </div>
+
+      {/* Bottom Navigation Bar */}
+      <BusinessBottomBar currentSection={currentSection} setCurrentSection={setCurrentSection} />
     </div>
   );
 }

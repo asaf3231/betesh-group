@@ -1,0 +1,44 @@
+.business-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center content vertically */
+    padding: 20px;
+    margin: 0; /* Remove top and bottom margin */
+    background-color: transparent; /* Transparent background to match the image */
+    text-align: center;
+    width: 100vw; /* Full viewport width */
+    height: 30vh; /* Fixed height: 30% of the viewport height */
+    color: white; /* Text color to stand out on dark backgrounds */
+    box-sizing: border-box; /* Ensure padding is included in the width/height */
+  }
+  
+  .business-image-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px; /* Reduce margin for better spacing */
+  }
+  
+  .business-info {
+    background-color: rgba(255, 255, 255, 0.9); /* Light background with some transparency */
+    padding: 15px;
+    border-radius: 10px; /* Slightly rounded corners */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    width: 100%; /* Ensure it takes up full width */
+    height: 100%; /* Stretch to fill the available height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box; /* Include padding in height */
+  }
+  
+  
+  
+  .business-description {
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    color: #333; /* Dark text for contrast */
+    margin-top: 0;
+  }

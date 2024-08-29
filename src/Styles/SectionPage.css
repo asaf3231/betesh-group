@@ -1,53 +1,81 @@
-  .section-header {
-    height: 40vh; /* Adjust the height as needed */
-    width: 100%;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    flex-direction: column; /* Change to column to stack h1 and p vertically */
-    justify-content: center;
-    align-items: center;
-    color: black;
-    text-align: center; /* Center the text horizontally */
-  }
+/* Full-page background image container */
+.imgbackground {
+  position: absolute; /* Ensures it covers the entire section */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh; /* Full height of the viewport */
+  background-size: cover;
+  background-position: center;
+  z-index: -1; /* Places it behind the content */
+}
 
-  .section-header h1 {
-    font-family: 'Playfair Display', serif; /* Ensure this font is imported */
-    font-size: 2.5rem; /* Adjust the font size as needed */
-    font-weight: bold;
-    text-transform: uppercase; /* Make the text uppercase */
-    margin-bottom: 10px; /* Add some space between title and description */
-  }
+/* Section Page Styling */
+.section-page {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Full height of the viewport */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
 
-  .section-description {
-    font-family: 'Avenir Next', sans-serif; /* Ensure this font is imported */
-    font-size: 1rem;
-    margin-top: 0; /* Ensure there's no extra space */
-    margin-bottom: 20px; /* Adjust this as needed */
-    color: #555;
-  }
+/* Header section */
+.section-header {
+  height: 40vh; /* Adjust the height as needed */
+  width: 100%;
+  display: flex;
+  flex-direction: column; /* Change to column to stack h1 and p vertically */
+  justify-content: center;
+  align-items: center;
+  color: #FFFFF0;
+  text-align: center; /* Center the text horizontally */
+  z-index: 1; /* Ensures the header appears above the background */
+}
 
-  .section-content {
-    padding: 20px;
-    text-align: center; /* Center text horizontally in content */
-  }
+/* Header title */
+.section-header h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 2.5rem; /* Adjust the font size as needed */
+  font-weight: bold;
+  text-transform: uppercase; /* Make the text uppercase */
+  margin-bottom: 10px; /* Add some space between title and description */
+}
 
-  .business-item {
-    margin-bottom: 20px;
-    padding: 10px;
-    background-color: #f8f8f8;
-    border-radius: 10px;
-    text-align: center; /* Center the text horizontally */
-  }
+/* Header description */
+.section-description {
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  margin-top: 0; /* Ensure there's no extra space */
+  margin-bottom: 20px; /* Adjust this as needed */
+  color: #555;
+}
 
-  .business-item h2 {
-    font-family: 'Playfair Display', serif; /* Ensure this font is imported */
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-  }
+/* Content section */
+.section-content {
+  padding: 20px;
+  text-align: center; /* Center text horizontally in content */
+  z-index: 1; /* Ensures content appears above the background */
+}
 
-  .business-item p {
-    font-family: 'Avenir Next', sans-serif; /* Ensure this font is imported */
-    font-size: 1rem;
-    color: #555;
-  }
+/* Business item styling */
+.business-item {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  text-align: center; /* Center the text horizontally */
+}
+
+.business-item h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.business-item p {
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  color: #555;
+}

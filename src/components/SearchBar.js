@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // <-- Updated to useNavigate
-import './SearchBar.css';
+import '../Styles/SearchBar.css';
 
 function SearchBar() {
   const [isFocused, setIsFocused] = useState(false);

@@ -20,25 +20,30 @@
   z-index: -1; /* Ensure it stays behind the search bar */
 }
 
-/* Individual Slideshow Image */
-.slideshow-image {
+/* Individual Slideshow Video */
+.slideshow-video {
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
-  background-size: cover;
-  background-position: center;
   opacity: 0;
   transition: opacity 2s ease-in-out; /* Fade transition */
 }
 
-.slideshow-image.active {
+.slideshow-video.active {
   opacity: 1;
 }
 
+.video-element {
+  height: 100%;
+  width: 100%;
+  object-fit: cover; /* Ensure the video covers the entire container */
+}
+
+/* Search Bar Container */
 .search-bar-container {
-  z-index: 1; /* Ensure the search bar is above the background image */
+  z-index: 1; /* Ensure the search bar is above the background video */
   width: 100%; /* Make sure the container takes full width */
   display: flex; /* Use flexbox to align items inside */
   justify-content: center; /* Center the input horizontally */
@@ -54,6 +59,8 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   text-align: center;
 }
+
+/* Icon Container */
 .icon-container {
   position: absolute;
   top: 10px;
