@@ -16,21 +16,26 @@ export default function BusinessBottomBar({ currentSection, setCurrentSection })
       sx={{ 
         width: 'fit-content', // Adjust width to fit the buttons only
         position: 'absolute', 
-        top: 'calc(90vh - 90px)', // Position 20px above the business name
+        top: 'calc(90vh - 105px)', // Position 20px above the business name
         left: '50%',
         transform: 'translateX(-50%)', // Center horizontally
         backgroundColor: '#fff', 
         zIndex: 1000,
         borderRadius: '15px', // Rounded corners
         boxShadow: '0px 4px 15px rgba(0, 0, 0, 0.2)', // Add shadow for floating effect
-        padding: '5px', // Add padding inside the bar
+        padding: '2px', // Add padding inside the bar
         display: 'flex',
         justifyContent: 'center',
         '& .Mui-selected': {
-          color: 'grey', // Change the color of the selected item to grey
+          color: 'grey !important', // Change the color of the selected item to grey
         },
         '& .MuiBottomNavigationAction-root': {
-          color: 'grey', // Set default color for the icons to grey
+          color: 'grey !important', // Set default color for the icons to grey
+          minWidth: '65px', // Set a minimum width for the action buttons
+
+        },
+        '& .MuiSvgIcon-root': {
+          fontSize: '1.2rem', // Reduce the size of the icons
         },
       }}
       value={currentSection}

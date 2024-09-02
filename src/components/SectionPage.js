@@ -21,10 +21,6 @@ const SectionPage = ({ title, description, imageUrl, items }) => {
       }}
     >
       <div className="scrollable-container">
-        <div className="section-header">
-          <h1>{title}</h1>
-          <p className="section-description">{description}</p>
-        </div>
         {items.map((item) => (
           <BusinessItem
             key={item.id}

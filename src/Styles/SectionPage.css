@@ -61,9 +61,10 @@
   flex: 1; /* Take up remaining space in the content-layer */
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center the items horizontally */
-  padding: 20px; /* Add padding for spacing around the items */
+  align-items: stretch; /* Make sure items take full width */
+  padding: 0; /* Remove padding */
   overflow-y: auto; /* Ensure this container can scroll */
   overflow-x: hidden; /* Prevent horizontal scrolling */
-  width: 100%;
+  width: 100%; /* Ensure full width */
+  margin: 0; /* Remove any margin */
 }

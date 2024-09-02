@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import '../Styles/BusinessPage.css';
 import StarIcon from '@mui/icons-material/Star';
+import BusinessBottomBar from './BusinessBottomBar'; // ייבוא ה-BottomBar
 
 function BusinessPage({ business }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [currentSection, setCurrentSection] = useState('general'); // סטייט לניהול המקטע הנבחר
 
   const nextSlide = () => {
     setCurrentImageIndex((prevIndex) =>
@@ -85,6 +87,9 @@ function BusinessPage({ business }) {
           <p>Description: {business.description}</p>
         </div>
       </div>
+
+      {/* הוספת BusinessBottomBar */}
+      <BusinessBottomBar currentSection={currentSection} setCurrentSection={setCurrentSection} />
     </div>
   );
 }
