@@ -14,19 +14,29 @@ export default function BottomBar({ index, setIndex }) {
   };
 
   return (
-    <BottomNavigation
-      sx={{ width: '100%', position: 'fixed', bottom: 0, left: 0, backgroundColor: '#fff', zIndex: 1000 }}
-      value={index}
-      onChange={handleChange}
-    >
+  <BottomNavigation
+  sx={{ 
+    width: '100vw !important',  /* Force full viewport width */
+    position: 'fixed', 
+    bottom: 0, 
+    left: 0, 
+    right: 0, 
+    margin: '0 !important',  /* Remove any margin */
+    padding: '0 !important',  /* Remove any padding */
+    backgroundColor: '#fff', 
+    zIndex: 1000 
+  }}
+  value={index}
+  onChange={handleChange}
+>
       <BottomNavigationAction
         label="Welcome"
         value={0}
         icon={<HomeIcon />}
         sx={{
-          color: index === 0 ? 'grey' : 'inherit', // Change color when selected
+          color: index === 0 ? 'grey' : 'inherit', 
           '&.Mui-selected': {
-            color: 'grey', // Set the selected color to grey
+            color: 'grey', 
           },
         }}
       />

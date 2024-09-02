@@ -1,17 +1,21 @@
-    import React from 'react';
-    import '../Styles/BusinessItem.css';
+import React from 'react';
+import '../Styles/BusinessItem.css';
 
-    function BusinessItem({ name, description, imageUrl, onClick }) {
-    return (
-        <div className="business-item" onClick={onClick}>
-        <div className="business-image-container">
-        </div>
-        <div className="business-info">
-            <h2 className="business-name">{name}</h2>
-            <p className="business-description">{description}</p>
-        </div>
-        </div>
-    );
-    }
+function BusinessItem({ name, title, description, imageUrl, onClick }) {
 
-    export default BusinessItem;
+    console.log(title);
+  return (
+    <div className="business-item" onClick={onClick}>
+      <div className="business-image-container">
+        {/* Optionally, add image handling here */}
+      </div>
+      <div className="business-info">
+        {title && <h2 className="business-title">{title}</h2>} {/* Display the title if provided */}
+        {name && <h2 className="business-name">{name}</h2>} {/* Display the name */}
+        {description && <p className="business-description">{description}</p>} {/* Display the description */}
+      </div>
+    </div>
+  );
+}
+
+export default BusinessItem;

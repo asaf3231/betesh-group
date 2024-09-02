@@ -1,81 +1,69 @@
-/* Full-page background image container */
-.imgbackground {
-  position: absolute; /* Ensures it covers the entire section */
+.section-page {
+  position: relative;
+  width: 100vw;  /* Full viewport width */
+  height: 100vh; /* Full viewport height */
+  overflow-y: auto; /* Allow scrolling for the section page */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.background-layer {
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh; /* Full height of the viewport */
+  height: 100vh; /* Full viewport height */
   background-size: cover;
   background-position: center;
-  z-index: -1; /* Places it behind the content */
+  z-index: -1; /* Ensure this layer stays behind the content */
 }
 
-/* Section Page Styling */
-.section-page {
+.content-layer {
   position: relative;
   width: 100%;
-  height: 100vh; /* Full height of the viewport */
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  overflow: hidden;
+  overflow-y: auto; /* Allow scrolling for the entire content */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
-/* Header section */
 .section-header {
-  height: 40vh; /* Adjust the height as needed */
   width: 100%;
+  height: 65vh; /* Fixed height for the header */
   display: flex;
-  flex-direction: column; /* Change to column to stack h1 and p vertically */
-  justify-content: center;
-  align-items: center;
-  color: #FFFFF0;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
   text-align: center; /* Center the text horizontally */
-  z-index: 1; /* Ensures the header appears above the background */
+  color: white; /* White text for high contrast */
+  z-index: 1; /* Ensure the header stays on top */
+  padding: 0;
 }
 
-/* Header title */
 .section-header h1 {
-  font-family: 'Cinzel', serif;
-  font-size: 2.5rem; /* Adjust the font size as needed */
-  font-weight: bold;
-  text-transform: uppercase; /* Make the text uppercase */
-  margin-bottom: 10px; /* Add some space between title and description */
+  font-family: 'Playfair Display', serif; /* Use a serif font */
+  font-size: 3rem; /* Large font size */
+  font-weight: bold; /* Bold text */
+  text-transform: uppercase; /* Uppercase text */
+  margin: 0; /* Remove margin to align with example */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Shadow for better readability */
 }
 
-/* Header description */
 .section-description {
-  font-family: 'Cinzel', serif;
-  font-size: 1rem;
-  margin-top: 0; /* Ensure there's no extra space */
-  margin-bottom: 20px; /* Adjust this as needed */
-  color: #555;
+  font-family: 'Avenir Next', sans-serif; /* Use a clean sans-serif font */
+  font-size: 1.25rem; /* Slightly smaller font size */
+  margin-top: 10px; /* Space above the description */
+  margin-bottom: 0; /* No extra space below */
+  color: #ddd; /* Light gray text for contrast */
 }
 
-/* Content section */
-.section-content {
-  padding: 20px;
-  text-align: center; /* Center text horizontally in content */
-  z-index: 1; /* Ensures content appears above the background */
-}
-
-/* Business item styling */
-.business-item {
-  margin-bottom: 20px;
-  padding: 10px;
-  background-color: #f8f8f8;
-  border-radius: 10px;
-  text-align: center; /* Center the text horizontally */
-}
-
-.business-item h2 {
-  font-family: 'Cinzel', serif;
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-}
-
-.business-item p {
-  font-family: 'Cinzel', serif;
-  font-size: 1rem;
-  color: #555;
+.scrollable-container {
+  flex: 1; /* Take up remaining space in the content-layer */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the items horizontally */
+  padding: 20px; /* Add padding for spacing around the items */
+  overflow-y: auto; /* Ensure this container can scroll */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  width: 100%;
 }

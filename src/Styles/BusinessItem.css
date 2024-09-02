@@ -1,44 +1,37 @@
 .business-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; /* Center content vertically */
-    padding: 20px;
-    margin: 0; /* Remove top and bottom margin */
-    background-color: transparent; /* Transparent background to match the image */
-    text-align: center;
-    width: 100vw; /* Full viewport width */
-    height: 30vh; /* Fixed height: 30% of the viewport height */
-    color: white; /* Text color to stand out on dark backgrounds */
-    box-sizing: border-box; /* Ensure padding is included in the width/height */
-  }
-  
-  .business-image-container {
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10px; /* Reduce margin for better spacing */
-  }
-  
-  .business-info {
-    background-color: rgba(255, 255, 255, 0.9); /* Light background with some transparency */
-    padding: 15px;
-    border-radius: 10px; /* Slightly rounded corners */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    width: 100%; /* Ensure it takes up full width */
-    height: 100%; /* Stretch to fill the available height */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    box-sizing: border-box; /* Include padding in height */
-  }
-  
-  
-  
-  .business-description {
-    font-family: 'Cinzel', serif;
-    font-size: 1rem;
-    color: #333; /* Dark text for contrast */
-    margin-top: 0;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Center content vertically */
+  padding: 20px; /* Adjust padding for content spacing */
+  margin: 10px 0; /* Vertical margin for spacing between items */
+  background-color: #edf5e1; /* Light green background color */
+  text-align: center;
+  width: 80vw; /* Adjust width to fit better when centered */
+  height: 25vh; /* Set height to match the reference image */
+  color: #333; /* Dark text for contrast */
+  border-radius: 10px; /* Rounded corners for a smooth look */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  box-sizing: border-box; /* Ensure padding is included in the width/height */
+}
+
+.business-title {
+  font-family: 'Cinzel', serif; /* Use a serif font for the title */
+  font-size: 1.5rem; /* Set a moderate font size for the title */
+  color: #333; /* Dark text for contrast */
+  margin-bottom: 10px; /* Space below the title */
+}
+
+.business-name {
+  font-family: 'Cinzel', serif; /* Use a serif font for the name */
+  font-size: 1.25rem; /* Set a moderate font size for the name */
+  color: #333; /* Dark text for contrast */
+  margin-bottom: 10px; /* Space below the name */
+}
+
+.business-description {
+  font-family: 'Avenir Next', sans-serif; /* Use a clean sans-serif font */
+  font-size: 1rem; /* Standard font size */
+  color: #333; /* Dark text for contrast */
+  margin-top: 0; /* Remove top margin */
+}

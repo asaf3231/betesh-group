@@ -11,25 +11,28 @@ const SectionPage = ({ title, description, imageUrl, items }) => {
   };
 
   return (
-    <div className="section-page">
-      <div 
-        className="imgbackground" 
-        style={{ 
-          backgroundImage: `url(${imageUrl})`
-        }}
-      ></div>
-      <div className="section-header">
-        <h1>{title}</h1>
-        <p className="section-description">{description}</p>
-      </div>
-      <div className="section-content">
+    <div 
+      className="section-page"
+      style={{ 
+        backgroundImage: `url(${imageUrl})`, /* Dynamically set the background image */
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
+      <div className="scrollable-container">
+        <div className="section-header">
+          <h1>{title}</h1>
+          <p className="section-description">{description}</p>
+        </div>
         {items.map((item) => (
           <BusinessItem
             key={item.id}
             name={item.name}
+            title={item.title}
             description={item.description}
             imageUrl={item.imageUrl}
-            onClick={() => handleBusinessClick(item.id)} // Directly handle click event here
+            onClick={() => handleBusinessClick(item.id)} 
           />
         ))}
       </div>

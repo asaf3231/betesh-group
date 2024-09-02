@@ -1,35 +1,71 @@
-import React from 'react';
-import Slider from 'react-slick';
+import React, { useState } from 'react';
 import '../Styles/BusinessPage.css';
-import BusinessBottomBar from './BusinessBottomBar';
 import StarIcon from '@mui/icons-material/Star';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-
 
 function BusinessPage({ business }) {
-  const [currentSection, setCurrentSection] = React.useState('general');
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const settings = {
-    dots: true, // Show navigation dots
-    infinite: true, // Loop through slides
-    speed: 500, // Transition speed
-    slidesToShow: 1, // Show one slide at a time
-    slidesToScroll: 1, // Scroll one slide at a time
-    adaptiveHeight: true, // Adjust height to the content
+  const nextSlide = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === business.photos.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const prevSlide = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === 0 ? business.photos.length - 1 : prevIndex - 1
+    );
+  };
+
+  const goToSlide = (index) => {
+    setCurrentImageIndex(index);
+  };
+
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  const handleTouchStart = (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  };
+
+  const handleTouchEnd = (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipeGesture();
+  };
+
+  const handleSwipeGesture = () => {
+    if (touchStartX - touchEndX > 75) {
+      nextSlide(); // swipe left
+    }
+    if (touchEndX - touchStartX > 75) {
+      prevSlide(); // swipe right
+    }
   };
 
   return (
     <div className="business-page">
       {/* Image Carousel Container */}
-      <div className="business-image-container">
-        <Slider {...settings}>
-          {business.photos.map((photo, index) => (
-            <div key={index}>
-              <img src={photo} alt={`Slide ${index}`} className="business-image" />
-            </div>
-          ))}
-        </Slider>
+      <div
+        className="business-image-container"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
+        <img
+          src={business.photos[currentImageIndex]}
+          alt={`${business.name}`}
+          className="business-image"
+        />
+      </div>
+
+      {/* Navigation Dots */}
+      <div className="dots-container">
+        {business.photos.map((_, index) => (
+          <span
+            key={index}
+            className={`dot ${index === currentImageIndex ? 'active' : ''}`}
+            onClick={() => goToSlide(index)}
+          ></span>
+        ))}
       </div>
 
       {/* Information Container */}
@@ -49,9 +85,6 @@ function BusinessPage({ business }) {
           <p>Description: {business.description}</p>
         </div>
       </div>
-
-      {/* Bottom Navigation Bar */}
-      <BusinessBottomBar currentSection={currentSection} setCurrentSection={setCurrentSection} />
     </div>
   );
 }
